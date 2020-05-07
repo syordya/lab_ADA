@@ -4,7 +4,7 @@
 #include<vector>
 #include <ctime>
 using namespace std;
-#define T 500
+#define T 10000
 int main() {
 	unsigned t0, t1;
 	t0 = clock();
