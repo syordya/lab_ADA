@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 typedef double carr;
+
 void CopyArray(carr A[], int iBegin, int iEnd, carr B[])
 {
     for(int k = iBegin; k < iEnd; k++)
@@ -33,8 +34,6 @@ void TopDownSplitMerge(carr B[], int iBegin, int iEnd,carr  A[])
     TopDownSplitMerge(A, iMiddle,    iEnd, B);
     TopDownMerge(B, iBegin, iMiddle, iEnd, A);
 }
-
-
 
 void MergeSort(carr A[], carr B[], int n)
 {
