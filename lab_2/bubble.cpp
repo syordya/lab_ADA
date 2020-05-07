@@ -1,7 +1,7 @@
 //Yordy Williams Santos Apaza
 //Repositorio en GitHub: https://github.com/syordya/lab_ADA
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 #include <ctime>
 using namespace std;
 #define T 10000
