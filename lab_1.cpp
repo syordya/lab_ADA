@@ -1,32 +1,22 @@
+//Yordy Williams Santos Apaza
+//Repositorio en GitHub: https://github.com/syordya/lab_ADA
 #include <iostream>
 #include <ctime>
-#include<stdlib.h>
-#include<time.h>
-
+#include <stdlib.h>
+#include <time.h>
 using namespace std;
-
-////Practica de Laboratorio 1 de ADA
-////NOMBRE: Thales Panibra
-
-//[1] En el constructor se crea el arreglo de n elementos
-//[2] En Iniciar se ejecuta el contador de tiempo
-//[3] Se agredo al algoritmo contadores para calcular el "costo"
-
 class Prueba
 {
-
-public:
+    public:
     Prueba()
     {
         int longitud=10000;
         srand(time(NULL));
         arreglo=new int[longitud]{};
-
         for(int i=0;i<longitud;i++)
         {
             arreglo[i]=0+rand()%(10001-0);//Numero aleatorio
         }
-
         longArreglo=longitud;
         compara=0;
         asigna=0;
@@ -37,7 +27,6 @@ public:
     {
         srand(time(NULL));
         arreglo=new int[longitud]{};
-
         for(int i=0;i<longitud;i++)
         {
             arreglo[i]=0+rand()%(1000001-0);//Numero aleatorio
@@ -47,8 +36,6 @@ public:
         asigna=0;
         crea=0;
         memoria=0;
-
-
     }
     ~Prueba()
     {
@@ -63,10 +50,10 @@ public:
         case 1://insert sort
             t0=clock();//Inicio del cronometro
             insertionSort(arreglo,longArreglo);
-            t1=clock();//FIn de cronometro
+            t1=clock();//Fin de cronometro
             time = (double(t1-t0)/CLOCKS_PER_SEC);
             cout << "Execution Time InsertSort: " << time << endl;
-            costo();//calculo del "costo"
+            costo();//calculo del costo
             break;
         case 2://bubble sort
             t0=clock();//Inicio del cronometro
@@ -74,9 +61,8 @@ public:
             t1=clock();//FIn de cronometro
             time = (double(t1-t0)/CLOCKS_PER_SEC);
             cout << "Execution Time BubbleSort: " << time << endl;
-            costo();//calculo del "costo"
+            costo();//calculo del costo
             break;
-
         }
     }
 private:
@@ -84,15 +70,12 @@ private:
     int longArreglo;
     unsigned t0,t1;
     unsigned compara,asigna,crea,memoria;
-
-
     void costo()
     {   cout<<"Comparaciones: "<<compara<<endl;
         cout<<"Asignaciones: "<<asigna<<endl;
         cout<<"Creaciones: "<<crea<<endl;
         cout<<"El costo total es: "<<((compara*2)+(asigna*8)+(crea*200)+((memoria*50)+(longArreglo*10)))<<endl;
     }
-
     void insertionSort(int* &arr, int n)
     {
         int i;crea++;
@@ -116,9 +99,7 @@ private:
                 //
             }
             arr[j + 1] = key;asigna++;
-
         }
-
     }
     void bubbleSort(int* &arr, int n)
     {
@@ -141,11 +122,8 @@ private:
                     compara++;
                     swap(&arr[j], &arr[j+1]);
                 }
-
             }
-
         }
-
     }
     void swap(int *xp, int *yp)
     {
@@ -153,22 +131,12 @@ private:
         *xp = *yp;asigna++;asigna++;
         *yp = temp;asigna++;
     }
-
-
-
 };
-
-
-
-
-
 int main()
 {
-    //Para ejecutar tiene que crear una clase asigando el tamanio del arreglo dinamico
     Prueba *uno=new Prueba(10000);
-    //Parara ejecutar llame la funcion iniciar indicando "1" para insert sort y 2 para Bubble sort
     uno->iniciar(1);
-    delete uno;//No olvide eliminar la memoria dinamica xd
+    delete uno;
     Prueba *dos=new Prueba(10000);
     dos->iniciar(2);
     delete dos;
