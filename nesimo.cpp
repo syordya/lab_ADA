@@ -49,20 +49,3 @@ int particiona(int A[], int p, int r)
     A[r] = t;
     return i+1;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
